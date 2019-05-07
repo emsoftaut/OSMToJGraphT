@@ -1,7 +1,6 @@
 package graphgenerator;
 
- * and allows for easier testing
- */
+
 
 import org.jgrapht.graph.DefaultEdge;
 
