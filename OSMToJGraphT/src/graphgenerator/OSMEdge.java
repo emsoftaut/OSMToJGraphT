@@ -63,6 +63,6 @@ public class OSMEdge extends DefaultEdge{
     @Override
     public String toString()
     {
-        return this.distance + "";
+        return this.sourceNode + "->" + this.targetNode;
     }
 }

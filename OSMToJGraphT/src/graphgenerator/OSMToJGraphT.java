@@ -10,6 +10,8 @@ import org.dom4j.DocumentException;
 import org.dom4j.Node;
 import org.dom4j.io.SAXReader;
 import org.jgrapht.Graph;
+import org.jgrapht.alg.interfaces.ShortestPathAlgorithm.SingleSourcePaths;
+import org.jgrapht.alg.shortestpath.DijkstraShortestPath;
 import org.jgrapht.graph.SimpleWeightedGraph;
 
 
@@ -28,6 +30,11 @@ public class OSMToJGraphT {
 			parseWays(ways, idToNodeMap, g);
 			OSMGraphToDOT.exportOSMGraphToFile(g,"./resources/dotoutput.gv");
 			
+			
+			DijkstraShortestPath<OSMNode, OSMEdge> shortestPath = new DijkstraShortestPath<OSMNode, OSMEdge>(g);
+			SingleSourcePaths<OSMNode, OSMEdge> iPaths = shortestPath.getPaths(idToNodeMap.get(5183768449L));
+			System.out.println(iPaths.getPath(idToNodeMap.get(4297243964L)) + "\n");
+
 		} catch (DocumentException ex) {
 			ex.printStackTrace();
 		}

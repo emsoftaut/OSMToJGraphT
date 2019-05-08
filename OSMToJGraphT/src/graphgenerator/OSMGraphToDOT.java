@@ -7,6 +7,7 @@ import java.io.IOException;
 import org.jgrapht.Graph;
 import org.jgrapht.io.ComponentNameProvider;
 import org.jgrapht.io.DOTExporter;
+import org.jgrapht.alg.shortestpath.*;
 
 public class OSMGraphToDOT {
 	
@@ -22,6 +23,8 @@ public class OSMGraphToDOT {
 					objectToStringProvider,  
 					objectToStringProvider);
 			dotExporter.exportGraph(g, fileWriter);
+
+			
 		}catch(IOException ex) {
 			System.out.println(ex);
 		}
