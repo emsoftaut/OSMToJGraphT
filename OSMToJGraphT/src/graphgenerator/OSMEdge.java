@@ -29,7 +29,7 @@ public class OSMEdge extends DefaultEdge{
 	}
 	
 	public OSMNode getTargetNode() {
-		return this.targetNode;
+		return this.targetNode; 
 	}
 	
 	public void setTargetNode(OSMNode target) {
