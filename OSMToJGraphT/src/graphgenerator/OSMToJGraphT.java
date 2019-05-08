@@ -26,13 +26,7 @@ public class OSMToJGraphT {
 			Graph<OSMNode, OSMEdge> g = new SimpleWeightedGraph<OSMNode, OSMEdge>(OSMEdge.class);
 			List<Node> ways = document.selectNodes("/osm/way");
 			parseWays(ways, idToNodeMap, g);
-			
-			
-			
-			
-			
-			
-	
+			OSMGraphToDOT.exportOSMGraphToFile(g,"./resources/dotoutput.gv");
 			
 		} catch (DocumentException ex) {
 			ex.printStackTrace();

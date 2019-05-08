@@ -51,8 +51,6 @@ public class OSMEdge extends DefaultEdge{
 		}
 	}
 	
-
-	
 	public Double calculateDistance(OSMNode source, OSMNode target) {
 		return Haversine.distance(Double.parseDouble(source.getLat()), Double.parseDouble(source.getLon()),
 				Double.parseDouble(target.getLat()), Double.parseDouble(target.getLon()));
@@ -65,6 +63,6 @@ public class OSMEdge extends DefaultEdge{
     @Override
     public String toString()
     {
-        return "Edge: " + this.sourceNode + "->" + this.targetNode;
+        return this.distance + "";
     }
 }

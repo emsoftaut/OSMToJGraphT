@@ -59,6 +59,6 @@ public class OSMNode {
     @Override
     public String toString()
     {
-        return "(" + this.nodeID + ")";
+        return this.nodeID+"";
     }//End toString
 }//End OSMNode
