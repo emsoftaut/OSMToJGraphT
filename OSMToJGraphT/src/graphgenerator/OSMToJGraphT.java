@@ -36,7 +36,7 @@ public class OSMToJGraphT {
 			System.out.println(iPaths.getPath(idToNodeMap.get(4297243964L)) + "\n");
 
 		} catch (DocumentException ex) {
-			ex.printStackTrace();
+			ex.printStackTrace(); 
 		}
 	}
 
