@@ -29,7 +29,7 @@ public class OSMToJGraphT {
 			List<Node> ways = document.selectNodes("/osm/way");
 			parseWays(ways, idToNodeMap, g);
 			OSMGraphToDOT.exportOSMGraphToFile(g,"./resources/dotoutput.gv");
-			
+			 
 			
 			DijkstraShortestPath<OSMNode, OSMEdge> shortestPath = new DijkstraShortestPath<OSMNode, OSMEdge>(g);
 			SingleSourcePaths<OSMNode, OSMEdge> iPaths = shortestPath.getPaths(idToNodeMap.get(5183768449L));
