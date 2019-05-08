@@ -21,7 +21,7 @@ public class OSMToJGraphT {
 		try {
 			File inputFile = new File("resources/aklreallysmall.osm");
 	        SAXReader reader = new SAXReader();
-			Document document = reader.read(inputFile);
+			Document document = reader.read(inputFile); 
 			List<Node> xmlNodes = document.selectNodes("/osm/node");
 			HashMap<Long,OSMNode> idToNodeMap = new HashMap<Long, OSMNode>();
 			parseNodes(xmlNodes,idToNodeMap);
