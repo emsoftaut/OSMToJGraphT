@@ -19,7 +19,7 @@ public class OSMToJGraphT {
 	
 	public static void main(String[] args) {
 		try {
-			File inputFile = new File("resources/aklreallysmall.osm");
+			File inputFile = new File("resources/aklreallysmall.osm"); 
 	        SAXReader reader = new SAXReader();
 			Document document = reader.read(inputFile); 
 			List<Node> xmlNodes = document.selectNodes("/osm/node");
