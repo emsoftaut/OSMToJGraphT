@@ -15,8 +15,20 @@ import org.jgrapht.alg.shortestpath.DijkstraShortestPath;
 import org.jgrapht.graph.SimpleWeightedGraph;
 
 
+//Feedback from EMSOFT
+// do not use magic numbers and also strings
+// avoid static methods!!!
+// efficiency - multicore/threaded
+// naming conventions
+// Java - great for prototyping (efficiency wise - may be C/C++)
+// write own print function (to change verbosity)
+// use .equals to compare strings (but what if first string is null)
+// use comments
+
+
 public class OSMToJGraphT {
 	
+
 	public static void main(String[] args) {
 		try {
 			File inputFile = new File("resources/aklreallysmall.osm"); 
@@ -73,6 +85,7 @@ public class OSMToJGraphT {
 	    		List<Node> nodes = way.selectNodes("*");	    		
 	    		for (int i = 0; i < nodes.size(); i++) {
 	        		Node currentXMLNode = nodes.get(i);
+	        		
 	        		if (currentXMLNode.getName() == "nd") {
 	        			currentNodeID =  Long.parseLong(nodes.get(i).valueOf("@ref"));
 	        			if(previousNodeID==-1) {
