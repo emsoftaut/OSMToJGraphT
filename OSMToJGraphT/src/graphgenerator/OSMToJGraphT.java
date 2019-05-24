@@ -1,5 +1,6 @@
 package graphgenerator;
 import java.io.File;
+import java.io.ObjectInputStream.GetField;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -55,13 +56,34 @@ public class OSMToJGraphT {
 	private static HashSet<Node> parseNodes(List<Node> xmlNodes, HashMap<Long,OSMNode> idToNodeMap) {
 		OSMNode newNode;
 		for(Node node: xmlNodes) {
-			//if(node.hasContent()) {
 				long id = Long.parseLong(node.valueOf("@id"));
 				newNode = new OSMNode(id, 
 						node.valueOf("@lat"),
 						node.valueOf("@lon"));
+				if(id==317655386) {
+					if(node.hasContent()) {
+						List<Node> nodes = node.selectNodes("*");
+						for(Node n: nodes) {
+							String key = 
+							
+							System.out.println("Printing:"+n);
+							System.out.println("Printing:"+n.getName());
+							System.out.println("Value is:"+n.valueOf("@*"));
+							if((n.valueOf("@*")+"").equals("name")) {
+								List<Node> nodes2 = n.selectNodes("*");
+								for(Node n2: nodes2) {
+									System.out.println("Printing:"+n2);
+									System.out.println("Printing:"+n2.getName());
+									System.out.println("Value is:"+n2.valueOf("@*"));
+								}
+							}
+
+						}
+						//System.out.println(nodes);
+					}
+					System.out.println("Node ID is:"+id);
+				}
 				idToNodeMap.put(id, newNode);
-			//}
 		}
 		return null;
 	}
