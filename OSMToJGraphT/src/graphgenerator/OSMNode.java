@@ -7,30 +7,26 @@ public class OSMNode {
 	private long nodeID;
 	private String lat;
 	private String lon;
-
-	
-
-	
-	
-
-	
+	private String name;
+		
 	public OSMNode(long passedNodeID) {
 		this.nodeID = passedNodeID;
-		//this.visited = false;
-	}//End passedOSMNode
-	
+	}
 
-	public OSMNode(long passedNodeID, String passedLat, String passedLon) {
+	public OSMNode(long passedNodeID, String passedLat, String passedLon, String name) {
 		this.nodeID = passedNodeID;
 		this.lat = passedLat;
 		this.lon = passedLon;
-		//this.visited = false;
-	}//End OSMNode Constructor
+		this.name = name;
+	}
+		
+
 	
 	/*
 	 * 		METHODS
 	 */
 	
+
 	public void setNodeID(long passedNodeID) {
 		this.nodeID = passedNodeID;
 	}//End setNodeID
@@ -49,12 +45,15 @@ public class OSMNode {
 	
 	public void setLon(String passedLon) {
 		this.lon = passedLon;
-	}//End setLon
+	}
 	
 	public String getLon() {
 		return this.lon;
-	}//End getNodeID
-
+	}
+	
+	public String getName() {
+		return this.name;
+	}
 	
     @Override
     public String toString()
