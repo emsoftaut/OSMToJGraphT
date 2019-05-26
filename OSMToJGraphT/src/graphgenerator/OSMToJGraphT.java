@@ -89,7 +89,7 @@ public class OSMToJGraphT {
 			g.addVertex(idToNodeMap.get(l));
 			System.out.println("Added node:"+l);
 		}
-			
+			 
 		
 		for (Node way : ways) {
 			if (way.hasContent()) {
