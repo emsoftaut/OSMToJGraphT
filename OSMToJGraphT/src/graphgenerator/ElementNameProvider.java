@@ -13,7 +13,7 @@ public class ElementNameProvider<Object> implements ComponentNameProvider<Object
 			double dist = ((OSMEdge) component).getDistance();
 			dist *= 100000;
 			dist = Math.round(dist);
-			return (dist/100)+"";
+			return (dist/100)+""; 
 		}
 		else 
 			return component.toString();
