@@ -1,4 +1,4 @@
-package graphgenerator;
+package apibasedimport;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -7,14 +7,11 @@ import java.io.IOException;
 import org.jgrapht.Graph;
 import org.jgrapht.io.ComponentNameProvider;
 import org.jgrapht.io.DOTExporter;
-
-import apibasedimport.ElementNameProvider;
-
 import org.jgrapht.alg.shortestpath.*;
 
-public class OSMGraphToDOT {
+public class ImportedGraphtoDOT {
 	
-	public static void exportOSMGraphToFile(Graph<OSMNode, OSMEdge> g, String fileName) {
+	public static void exportOSMGraphToFile(Graph<ImportedNode, ImportedEdge> g, String fileName) {
 		try{
 			File outputFile = new File(fileName);
 			if(!outputFile.exists())
@@ -22,7 +19,7 @@ public class OSMGraphToDOT {
 			ElementNameProvider objectToStringProvider = new ElementNameProvider();
 			//EdgeLabelProvider eProvider = new EdgeLabelProvider();
 			FileWriter fileWriter = new FileWriter(outputFile);
-			DOTExporter<OSMNode, OSMEdge> dotExporter = new DOTExporter<OSMNode, OSMEdge>(objectToStringProvider, 
+			DOTExporter<ImportedNode, ImportedEdge> dotExporter = new DOTExporter<ImportedNode, ImportedEdge>(objectToStringProvider, 
 					objectToStringProvider,  
 					objectToStringProvider);
 			dotExporter.exportGraph(g, fileWriter);

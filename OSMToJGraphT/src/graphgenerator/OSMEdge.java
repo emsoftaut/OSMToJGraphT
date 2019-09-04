@@ -4,6 +4,8 @@ package graphgenerator;
 
 import org.jgrapht.graph.DefaultEdge;
 
+import utilities.Haversine;
+
 public class OSMEdge extends DefaultEdge{
 	
 	private static final long serialVersionUID = 1L;
