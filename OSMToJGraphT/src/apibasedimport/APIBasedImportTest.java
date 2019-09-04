@@ -10,7 +10,7 @@ import de.westnordost.osmapi.map.data.Way;
 import de.westnordost.osmapi.map.handler.DefaultMapDataHandler;
 import de.westnordost.osmapi.map.handler.MapDataHandler;
 
-public class APIBasedImport {
+public class APIBasedImportTest {
 	
 	public static void main(String[] args) {
 		OsmConnection osm = new OsmConnection(
