@@ -6,5 +6,6 @@ APIs Required:
 
 To view the DOT files, you'll need Graphviz: https://www.graphviz.org/
 
-An example of the usage is shown in the class APIBasedImportTest.java
-The example uses data from Auckland, New Zealand 
+An example of the usage is shown in the class APIBasedImportTest.java.
+
+The example uses data from Auckland, New Zealand.
