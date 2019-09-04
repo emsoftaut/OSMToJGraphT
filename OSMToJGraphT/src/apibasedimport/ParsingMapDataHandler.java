@@ -12,8 +12,7 @@ import de.westnordost.osmapi.map.data.Relation;
 import de.westnordost.osmapi.map.data.Way;
 import de.westnordost.osmapi.map.handler.DefaultMapDataHandler;
 import de.westnordost.osmapi.map.handler.MapDataHandler;
-import graphgenerator.OSMEdge;
-import graphgenerator.OSMNode;
+
 
 
 public class ParsingMapDataHandler extends DefaultMapDataHandler implements MapDataHandler {

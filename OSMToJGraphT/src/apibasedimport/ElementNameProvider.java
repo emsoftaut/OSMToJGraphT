@@ -2,8 +2,6 @@ package apibasedimport;
 
 import org.jgrapht.io.ComponentNameProvider;
 
-import graphgenerator.OSMEdge;
-import graphgenerator.OSMNode;
 
 public class ElementNameProvider<Object> implements ComponentNameProvider<Object> {
 	public String getName(Object component) {
