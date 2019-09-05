@@ -17,7 +17,7 @@ public class APIBasedImportTest {
                 "https://api.openstreetmap.org/api/0.6/",
                 "my user agent", null);
 		MapDataDao mapDao = new MapDataDao(osm);
-		
+		//ImportedNode.setMapDataDao(mapDao);
 
 		BoundingBox boundingBox = new BoundingBox(-36.84883, 174.75937, -36.84326, 174.77107);
 		
@@ -25,6 +25,7 @@ public class APIBasedImportTest {
 		ParsingMapDataHandler dataHandler = new ParsingMapDataHandler();
 		
 		mapDao.getMap(boundingBox, dataHandler);
+		
 		
 		System.out.println("made it here");
 		
@@ -34,9 +35,9 @@ public class APIBasedImportTest {
 		else
 			System.out.println("Node is null");
 		
-		ImportedGraphtoDOT.exportOSMGraphToFile(dataHandler.getGraph(), "out.gv");
-		
-		
+
+		ImportedGraphtoDOT.exportOSMGraphToFile(dataHandler.getGraph(), "out.gv", dataHandler);
+
 		//TODO
 		//mapDao.getNode(123L).getTags();
 		//mapDao.getNodes(null);
