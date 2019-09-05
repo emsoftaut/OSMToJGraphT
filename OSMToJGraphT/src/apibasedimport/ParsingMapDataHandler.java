@@ -1,7 +1,7 @@
 package apibasedimport;
 
-import java.util.HashMap;
-import java.util.List;
+
+import java.util.*;
 
 import org.jgrapht.Graph;
 import org.jgrapht.graph.SimpleWeightedGraph;
@@ -19,6 +19,8 @@ public class ParsingMapDataHandler extends DefaultMapDataHandler implements MapD
 
 	private Graph<ImportedNode, ImportedEdge> g = new SimpleWeightedGraph<>(ImportedEdge.class);
 	private HashMap<Long,ImportedNode> myNodes = new HashMap<Long, ImportedNode>();
+	private HashSet<Way> myWays = new HashSet<>();
+	private boolean isWaysPopulated = false;
 	
 	@Override
 	public void handle(BoundingBox bounds) {
@@ -47,16 +49,28 @@ public class ParsingMapDataHandler extends DefaultMapDataHandler implements MapD
 	public void handle(Way way) {
 		System.out.println("Got Way: "+way+" with ID:"+way.getId());
 		super.handle(way);
-		long previousNodeID = -1;
-		for(long nodeID: way.getNodeIds()) {
-			if(previousNodeID==-1) {
-				previousNodeID = nodeID;
-				continue;
-			}	 
-			g.addEdge(myNodes.get(previousNodeID), myNodes.get(nodeID));
-			previousNodeID = nodeID;
-		}
+		this.myWays.add(way);
 		
+		
+	}
+	
+	private void processWays() {
+		for(Way way: this.myWays) {
+			ImportedNode previousNode = null, currentNode = null;
+			for(long nodeID: way.getNodeIds()) {
+				if(previousNode==null) {
+					previousNode = myNodes.get(nodeID);
+					continue;
+				}
+				if (currentNode==null) {
+					currentNode = myNodes.get(nodeID);
+					continue;
+				}
+				g.addEdge(previousNode,currentNode);
+				previousNode = currentNode;
+				currentNode = null;
+			}
+		}
 	}
 
 	
@@ -67,6 +81,8 @@ public class ParsingMapDataHandler extends DefaultMapDataHandler implements MapD
 	}
 	
 	public Graph<ImportedNode, ImportedEdge> getGraph() {
+		if(!isWaysPopulated)
+			this.processWays();
 		return g;
 	}
 

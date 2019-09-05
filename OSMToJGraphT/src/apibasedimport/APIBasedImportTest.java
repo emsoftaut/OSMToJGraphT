@@ -34,6 +34,8 @@ public class APIBasedImportTest {
 		else
 			System.out.println("Node is null");
 		
+		ImportedGraphtoDOT.exportOSMGraphToFile(dataHandler.getGraph(), "out.gv");
+		
 		
 		//TODO
 		//mapDao.getNode(123L).getTags();
